@@ -7,19 +7,29 @@
            /*清除样式*/
            *{margin:0px; padding:0px;}
            body{background-color:#f7f7f7; color:#858585;}
-           .introduce{position:fixed; width:30%; height:100%; overflow:hidden;
+           .introduce{position:fixed;top:0;left:0;width:30%;height:100%;overflow:hidden;
                       background-image:url("images/back1.jpg");}
            .header{position:relative; margin:25% auto 0;
-                   width:30%;height:20%;overflow:hidden;
-                   border:1px solid #fff;
+                   width:100px;height:100px;overflow:hidden;
+                   border:1px solid rgb(112, 190, 145);
                    border-radius:50%; background-image:url("images/header.jpg");}
-           .headerword{margin-top:15px;font-size:30px;text-align:center;}
+           .headerword{margin-top:1em;font-size:2em;text-align:center;}
            .content {text-align:center;
-                     font-size:16px;
+                     font-size:1em;
                      color:rgb(14, 150, 120);}
            .content span{display:block;
-                         margin-top:15px;}
-        </style>
+                         margin-top:1em;}
+           .inputbox{margin:2em auto 0;width:60%;height:2em;
+                     border:1px solid rgb(9, 72, 83);}
+           .inputbox .left{float:left; width:80%; height:2em;font-size:1em;
+                           background-color:transparent;border:none;}      
+           .inputbox .right{float:right; width:20%; height:2em;font-size:1em;color:inherit;}
+           .box{margin-left:30%;width:70%;}
+           .box div{float:left; 
+                    margin:2em 0 0 10%;padding:1em;
+                    width:300px;height:300px;
+                    background-color:red;}
+    </style>
         <link rel="shortcut icon" href="images/favicon.ico"/>
     </head>
     <body> 
@@ -32,7 +42,20 @@
                 <span>敢问路在何方&&路在脚下</span>
                 <span>95后/在读大三/轻生活/轻梦想</span>
             </div>
+            <form class="inputbox"> 
+                <input class="left" type="text"/>
+                <input class="right" type="button" value="搜索" onclick="search()"/>
+            </form> 
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
         </div>
     </body>      
 </html>
 <srcipt type="text/javascript" src="js/animate.js"></srcipt>
+<script>
+    function search(){
+
+    }
+</script>
