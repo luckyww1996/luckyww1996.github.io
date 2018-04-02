@@ -48,12 +48,27 @@
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;如果去掉对子元素宽度的设置，子元素的宽度仍然等于父元素宽度 ，可见，对于块级元素，子元素的宽度默认为父元素宽度的100%。</p>
 
                 <h2 class="samlltitle">第三部分：父元素是块级元素，子元素是内联元素</h2>
-                <p>第一种情况——内联元素是一般的类型（input、img除外）</p>
+                <p style="color:black;">第一种情况——内联元素是一般的类型（input、img除外）</p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;子元素没有办法设置宽度，不存在100%的问题，即内联元素必须依靠内部的内容撑开。</p>
-                <p>第二种情况——内联元素是可以设置宽度和高度的类型（input、img）</p>
+                <p style="color:black;">第二种情况——内联元素是可以设置宽度和高度的类型（input、img）</p>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;img和input是内联元素，但是能够设置元素宽度和高度，是因为除了块级元素和内联元素的分类方法外，还有一种替换元素和不可替换元素的分类方法。</p>
-
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black;">可替换元素</span> ——替换元素是浏览器根据其标签的元素与属性来判断显示具体的内容。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;img、input、textarea、select、object 等都是替换元素，这些元素往往都没有实际的内容,例如：<!--替换元素可以增加行框高度，但不增加line-height，内容区高度值 = padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom + height。要想替换元素居中，可以设置line-height = height， vertral-align = middle--></p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="cat.jpg"/&gt;浏览器会根据元素的标签类型和属性来显示这些元素，可替换元素在其显示中也生成了框。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black;">不可替换元素</span>——大多数元素是不可替换元素，即其内容直接呈现给了用户端（如浏览器）。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;当是img这种元素时，无论如何设置父元素的宽高，不去设置img的宽高时，img总是表现为原始的宽高。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;当是img这种元素时，如果只设置height或者width，那么便等比例显示图片。</p>
                 
+                <h2 class="samlltitle">第四部分：同为块级元素的父元素与脱离文档流的子元素</h2>
+                <p style="color:black;">第一种情况——float:left和float:right</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;如果将子元素设置为float:left或者float:right，使其脱离正常文档流，导致width和height为auto，被内容撑起来。</p>
+                <p style="color:black;">第二种情况——position:absolute和position:fixed</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;这种情况脱离正常文档流，导致width和height为auto，被内容撑起来的。</p>
+                <p style="color:black;">第三种情况——position:relative</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;这种情况下，子元素未脱离标准的文档流，width为父元素的100%，height为auto，被内容撑起来的。</p>
+       
+                <h2 class="samlltitle">第五部分：同为块级的子元素与脱离文档流的父元素</h2>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;父元素设置为float:left或者float:right或者position:absolute或者position:relative或者position:fixed，对于子元素，都没有影响，默认为父元素宽度的100%。</p>
             </div>
         </div>
     </body>
