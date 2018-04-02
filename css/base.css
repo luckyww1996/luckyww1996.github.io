@@ -1,7 +1,8 @@
 @charset "utf-8";
  /*右侧大盒子*/
- .box{position:relative;left:30%;top:0;width:70%;height:100%;}
+ .box{position:relative;left:30%;top:0;width:70%;}
  /*右侧的内容样式*/
  .contain{position:absolute; margin:2em 10% 0 10%;padding:4em;width:70%;
+          line-height:2em;
           background-color:#fafafa; 
           box-shadow:0 0 2px rgba(0,0,0, 0.5);}

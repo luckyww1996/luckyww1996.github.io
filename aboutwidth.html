@@ -8,11 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/base.css"/>
         <style type="text/css">
              .title{font-size:1.5em;color:rgb(125, 216, 216);}
+             .samlltitle{margin:1.5em 0;color:rgb(95, 94, 92);font-size:1em;}
         </style>
     </head>
     <body> 
         <div class="introduce">
-            <div class="header"></div>
+            <div class="header"></div> 
             <div class="headerword">石婉茹</div>
             <div class="content">
                 <span>我的名字:石婉茹</span>
@@ -27,7 +28,31 @@
         </div>    
         <div class="box">
             <div class="contain">
-                <div class="title">父元素与子元素间width的关系</div>
+                <h1 class="title">父元素与子元素间width的关系</h1>
+                <h2 class="samlltitle">第一部分：父元素与子元素都是内联元素</h2>   
+                <p>/*父元素与子元素都是内联元素时*/</p>
+                <p>span{width:100px;}/*失效，因为内联元素不可以直接设置width和height*/</p>
+                <p>a{width:100%;}/*失效，内联元素直接设置100%也是无效的*/</p>
+                <p>此时，审查元素时，span和a的width和height都是auto，即宽度和高度是由内容撑起来的</p>
+
+                <h2 class="samlltitle">第二部分：父元素与子元素都是块级元素</h2>
+                <p>/*父元素与子元素都是块级元素时*/</p>
+                <p>css部分：</p>
+                <p>div.parent{width:100px;}</p>
+                <p>div.son{width:100%;}</p>
+                <p>html部分：</p>
+                <p>&lt;div class="parent"&gt;</p>
+                <p>&lt;div class="son"&gt;&lt;/div&gt;</p>
+                <p>&lt;/div&gt;</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;此时，子元素不设置margin，border，padding时,子元素的宽度设置为父元素宽度的100%；否则，子元素的宽度为父元素的宽度减去相应的设置。</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;如果去掉对子元素宽度的设置，子元素的宽度仍然等于父元素宽度 ，可见，对于块级元素，子元素的宽度默认为父元素宽度的100%。</p>
+
+                <h2 class="samlltitle">第三部分：父元素是块级元素，子元素是内联元素</h2>
+                <p>第一种情况——内联元素是一般的类型（input、img除外）</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;子元素没有办法设置宽度，不存在100%的问题，即内联元素必须依靠内部的内容撑开。</p>
+                <p>第二种情况——内联元素是可以设置宽度和高度的类型（input、img）</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;img和input是内联元素，但是能够设置元素宽度和高度，是因为除了块级元素和内联元素的分类方法外，还有一种替换元素和不可替换元素的分类方法。</p>
+
                 
             </div>
         </div>
