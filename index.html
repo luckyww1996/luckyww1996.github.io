@@ -28,17 +28,20 @@
                 <span>95后/在读大三/轻生活/轻梦想</span>
             </div>
             <form class="inputbox"> 
+                <!--添加a标签，并为其设置类right，设置input的style属性，清除了类right-->
                 <input class="left" type="text"/>
-                <input class="right" type="button" value="搜索" onclick="search()"/>
+                <a class="right">
+                <input type="button" value="搜索" style="width:100%;height:100%;" onclick="search()"/>
+                </a>
             </form> 
         </div>
         <div class="box">
-            <div class="contain"> 
+            <div class="contain" id="aboutme"> 
                  <div><a href="aboutme.html" target="_blank">关于我【石婉茹】</a></div>
                  <div><a href="aboutme.html" target="_blank"><img src="images/image1.jpg" href=""/></a></div>
                  <div>石婉茹,在读大三，热爱编程，喜欢看书</div>
             </div>
-            <div class="contain">
+            <div class="contain" id="aboutwidth">
                  <div><a href="aboutwidth.html" target="_blank">父元素与子元素的width</a></div>
                  <div><a href="aboutwidth.html" target="_blank"><img src="images/image2.jpg"/></a></div>
                  <div>width</div>
@@ -58,7 +61,7 @@
                 <div><a href="" target="_blank"><img src="images/image5.jpg"/></a></div>
                 <div>ie6部分兼容问题</div>
             </div>
-            <div class="contain">
+            <div class="contain" id="domain">
                 <div><a href="" target="_blank">js没有块级作用域</a></div>
                 <div><a href="" target="_blank"><img src="images/image6.png"/></a></div>
                 <div>js没有块级作用域</div>
@@ -69,6 +72,13 @@
 <srcipt type="text/javascript" src="js/animate.js"></srcipt>
 <script>
     function search(){
-
+        var val=document.getElementsByClassName("left")[0];
+        var alink=document.getElementsByClassName("right")[0];
+        switch(val.value){
+            case "关于我": alink.href="#aboutme";break;
+            case "父元素与子元素的width": alink.href="#aboutwidth";break;
+            case "js没有块级作用域": alink.href="#domain";break;
+            default: alink.href="javascript:alert('没有找到匹配项')";
+        }
     }
 </script>
