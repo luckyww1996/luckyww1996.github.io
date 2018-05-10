@@ -46,12 +46,12 @@
                  <div><a href="aboutwidth.html" target="_blank"><img src="images/image2.jpg"/></a></div>
                  <div>width</div>
             </div>
-            <div class="contain">
+            <div class="contain" id="aboutregex">
                     <div><a href="" target="_blank">正则表达式</a></div>
                     <div><a href="" target="_blank"><img src="images/image3.jpg"/></a></div>
                     <div>js中RegExp</div>
             </div>
-            <div class="contain">
+            <div class="contain" id="abouteval">
                     <div><a href="" target="_blank">eval()函数</a></div>
                     <div><a href="" target="_blank"><img src="images/image4.jpg"/></a></div>
                     <div>js中的eval()</div>
@@ -78,6 +78,8 @@
             case "关于我": alink.href="#aboutme";break;
             case "父元素与子元素的width": alink.href="#aboutwidth";break;
             case "js没有块级作用域": alink.href="#domain";break;
+            case "正则表达式":alinl.href="#aboutregex";break;
+            case "js中的eval()函数":alink.href="#abouteval";break;
             default: alink.href="javascript:alert('没有找到匹配项')";
         }
     }

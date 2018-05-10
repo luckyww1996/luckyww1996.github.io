@@ -10,6 +10,8 @@
             .title{font-size:1.5em;color:rgb(125, 216, 216);}
             img{float:left; margin:2em 4em 2em 0; width:40%; overflow:hidden;}
             .text{line-height:inherit;}
+            .comment{float:left;width:100%;
+                     margin:2em 0 0 0;border:2px solid rgba(207, 153, 5,0.5);padding:16px;}
         </style>
     </head>
     <body>
@@ -42,7 +44,25 @@
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;既然选择这条路，那么定要义无反顾地走下去，挫折难以避免，还有太多的知识需要去学习，但是路就在自己的脚下，希望早点成长为自己想要的模样</p>
                     <p style="font-size:0.5em;">注意：目前个人能力有限，该网站是纯粹只是为了记录自己所学习的知识，屏幕自适应性以及功能等等做得不够好！！！后期会坚持更改和更新&hearts;&hearts;&hearts;</p> 
                 </div>
+                <div class="comment">
+                    <span style="color:rgb(49, 49, 48);">评论区</span>
+                    <div class="add" id="add"><form><input type="text" id="txt"/><input type="button" id="but" value="添加"/></form></div>
+                    <ul id="addcomment"></ul>
+                </div>
             </div>
         </div>
     </body>
 </html>
+<script>
+    window.onload=function(){
+        var but=document.getElementById("but");//点击
+        var addcomment=document.getElementById("addcomment");
+        but.onclick=function(){
+        var txt=document.getElementById("txt").value;
+        console.log(txt);  
+        var newli=document.createElement("li");
+        newli.innerHTML=txt;
+        addcomment.appendChild(newli);
+        }
+    }
+</script>
