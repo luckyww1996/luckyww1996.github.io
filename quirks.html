@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>Quirks模式</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>Quirks模式</h1>
+            <h2>Quirks模式</h2>
+            <p>Quirks模式（怪癖模式，诡异模式，怪异模式）</p>
+            <h2>DOCTYPE</h2>
+            <p>DOCTYPE，或者称为 Document Type Declaration（文档类型声明，缩写 DTD）。通常情况下，DOCTYPE 位于一个 HTML 文档的最前面的位置，位于根元素 HTML 的起始标签之前。这样一来，在浏览器解析 HTML 文档正文之前就可以确定当前文档的类型，以决定其需要采用的渲染模式（不同的渲染模式会影响到浏览器对于 CSS 代码甚至 JavaScript 脚本的解析）。</p>
+            <p><span>Quirks模式:</span>从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？</p>
+            <p>在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。</p>
+            <h2>DOCTYPE与各种模式的关系</h2>
+            <h3>混杂模式：</h3>
+            <p>不写DOCTYPE</p>
+            <h3>近似标准模式：</h3>
+            <p style="font-size:10px;">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</p>
+            <p style="font-size:10px;">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;</p>
+            <p style="font-size:10px;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</p>
+            <p style="font-size:10px;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;</p>
+            <h3>标准模式：</h3>
+            <p style="font-size:10px;">&lt;!DOCTYPE html&gt;</p>
+            <p style="font-size:10px;">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</p>
+            <p style="font-size:10px;">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</p>
+            <p>过渡型或框架型HTML声明与过渡型或框架型XHTML声明均可使浏览器进入近似标准模式，同时，html5的DOCTYPE声明和严格型HTML声明以及严格型XHTML声明则会使浏览器进入标准模式。</p>
+            <h3>三种模式下表现的差异</h3>
+            <p>混杂模式是不可取的，因为其没有兼容性可言。在IE（IE6~IE9）中，混杂模式即使用IE5.5内核来解析并渲染页面。</p>
+            <p>近似标准模式是在尽可能遵循标准的基础上兼容部分非标准代码，比如一些已经弃用的标签等</p>
+            <p>标准模式则是对统一标准实现最好的模式，它要求标签必须闭合（唯一不需要闭合的就是DOCTYPE标签），不能使用已经废弃的标签等等。</p>
+            <h2>Quirks模式和Standards模式的区别</h2>
+            <p>总体会有布局、样式解析和脚本执行三个方面的区别</p>
+            <p>盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks 模式下，IE的宽度和高度还包含了padding和border</p>
+            <p>设置行内元素的高宽：在Standards模式下，给<span>等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效</p>
+            <p>设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的。用margin:0 auto设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。IE6/7及IE8混杂模式（quirks模式）中，text- align:center可以使块级元素也居中对齐，其他浏览器中，text-align:center仅作用于行内内容上。</p>
+            <p>解决这个问题比较好的方式，就是为所有需要相对父容器居中对齐的块级元素设置“margin：0 auto”。但这个方式 IE6/IE7/IE8的混杂模式中不支持，所以还要设置父容器的 "text-align:center;"。</p>
+            <h2>浏览器支持的呈现模式</h2>
+            <h3>IE</h3>
+            <p>Internet Explorer 6+ 支持两种呈现模式，分别叫做 Quirks 模式和 Standards 模式。当 Internet Explorer 呈现包含有效 XHTML（或 HTML 4.0）DOCTYPE 的页时，它会以 Standards 模式呈现该页；否则，它会以 Quirks模式呈现该页（有关详细信息，请参阅<a href="http://msdn.microsoft.com/asp.net/default.aspx?pull=/library/en-us/dnie60/html/cssenhancements.asp">CSS Enhancements in Internet Explorer 6</a>）。</p>
+            <h3>Opera</h3>
+            <p>Opera 浏览器 (Opera 7+) 支持与 Internet Explorer 相同的两种呈现模式：Quirks 和 Standards（有关详细信息，请参阅<a href="http://www.opera.com/docs/specs/doctype/">http://www.opera.com/docs/specs/doctype/</a>）。</p>
+            <h3>Mozilla Firefox</h3>
+            <p>Mozilla Firefox 1+ 支持三种呈现模式：Quirks 模式、Almost Standards 模式和 Standards 模式。Firefox 的 Almost Standards 模式对应于 Internet Explorer 和 Opera 的 Standards 模式。当页包含有效的 XHTML 1.0 Transitional DOCTYPE（并且该页被分配为 text/html MIME 类型）时，Firefox 会以 Almost Standards 模式呈现该页。当页包含 XHTML 1.0 Strict 或 XHTML 1.1 DOCTYPE（或者该页被分配为 XML MIME 类型）时，该页将以 Standards 模式呈现（有关详细信息，请参阅 <a href="http://www.mozilla.org/docs/web-developer/quirks/doctypes.html">http://www.mozilla.org/docs/web-developer/quirks/doctypes.html</a>）。 </p>
+        </div>
+    </div>
+</body>

@@ -2,67 +2,49 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
-        <title>关于我【石婉茹】</title>
+        <meta name="author" content="石婉茹"/>
+        <meta name="keywords" content="关于width"/>
+        <meta name="description" content="luckyww个人网站-分享学习成果"/>
+        <title>关于我</title>
         <link rel="shortcut icon" href="images/favicon.ico"/>
-        <link rel="stylesheet" type="text/css" href="css/global.css"/>
         <link rel="stylesheet" type="text/css" href="css/base.css"/>
-        <style>
-            .title{font-size:1.5em;color:rgb(125, 216, 216);}
-            img{float:left; margin:2em 4em 2em 0; width:40%; overflow:hidden;}
-            .text{line-height:inherit;}
-            .comment{float:left;width:100%;
-                     margin:2em 0 0 0;border:2px solid rgba(207, 153, 5,0.5);padding:16px;}
+        <style> 
+          .addboxstyle{padding:30px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+          .b{color:black;}
         </style>
     </head>
-    <body>
-        <div class="introduce">  
-            <div class="header"></div>
-            <div class="headerword">石婉茹</div>
-            <div class="content">
-                <span>我的名字:石婉茹</span>
-                <span>QQ:2829339528</span>
-                <span>敢问路在何方&&路在脚下</span>
-                <span>95后/在读大三/轻生活/轻梦想</span>
-            </div>
-            <form class="inputbox"> 
-                <input class="left" type="text"/>
-                <input class="right" type="button" value="搜索" onclick="search()"/>
-            </form>
-        </div>
-        <div class="box">
-            <div class="contain">
-                <h1 class="title">关于我【石婉茹】</h1>
-                <div>
-                     <img src="images/aboutme1.jpg" alt="图片加载失败"/>
-                     <img src="images/aboutme2.jpg" alt="图片加载失败"/>
-                </div>
-                <div class="text">
-                    <p>Just About Me【石婉茹】</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;石婉茹，95后，在读大三，喜欢编程，看书</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;软件工程专业，大二下学期开始利用课余时间接触web前端，简单了解之后，被这个行业深深吸引住，开始了漫长的学习之路，选择这个方向，意味着选择另一种生活方式，一年以来，先后利用课余时间学习了web前端中html、css、javascript和jquery部分的知识。</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;敢问路在何方？路在脚下</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;既然选择这条路，那么定要义无反顾地走下去，挫折难以避免，还有太多的知识需要去学习，但是路就在自己的脚下，希望早点成长为自己想要的模样</p>
-                    <p style="font-size:0.5em;">注意：目前个人能力有限，该网站是纯粹只是为了记录自己所学习的知识，屏幕自适应性以及功能等等做得不够好！！！后期会坚持更改和更新&hearts;&hearts;&hearts;</p> 
-                </div>
-                <div class="comment">
-                    <span style="color:rgb(49, 49, 48);">评论区</span>
-                    <div class="add" id="add"><form><input type="text" id="txt"/><input type="button" id="but" value="添加"/></form></div>
-                    <ul id="addcomment"></ul>
-                </div>
+    <body> 
+        <div class="sidebar">
+            <img src="images/logo.jpg"/>
+            <p style="font-size:2em;">石婉茹</p>
+            <p>我的名字：石婉茹</p>
+            <p>QQ:2829339528</p>
+            <p>wechat:ww28052</p>
+            <p>敢问路在何方&&路在脚下</p>
+            <p>95后/本科在读/轻生活/轻梦想</p>
+            <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+        </div> 
+        <div class="contain">
+            <div class="box addboxstyle">
+                <h1>Just About Me【石婉茹】</h1>
+                <h4>&nbsp;</h4>
+                <p>&hearts;&nbsp;&hearts;&nbsp;关于我&nbsp;&hearts;&nbsp;&hearts;</p>
+                <p>石婉茹，95后，在读大三，喜欢编程，看书</p>
+                <p>大二开始，喜欢上前端</p>
+                <p>敢问路在何方？路在脚下</p>
+                <p> 轻生活，轻梦想</p>
+                <p>既然选择这条路，那么定要义无反顾地坚持下去</p>
+                <p>&hearts;&nbsp;&hearts;&nbsp;说给自己听&nbsp;&hearts;&nbsp;&hearts;</p>
+                <p>如果有来生</p>
+                <p>要做一棵树</p>
+                <p>站成永恒</p>
+                <p>没有悲欢的姿势</p>
+                <p>一半在土里安详</p>
+                <p>一半在风里飘扬</p>
+                <p>一半洒落阴凉</p>
+                <p>一半沐浴阳光</p>
+                <p>非常沉默非常骄傲</p>
+                <p>从不依靠从不寻找</p>
             </div>
         </div>
-    </body>
-</html>
-<script>
-    window.onload=function(){
-        var but=document.getElementById("but");//点击
-        var addcomment=document.getElementById("addcomment");
-        but.onclick=function(){
-        var txt=document.getElementById("txt").value;
-        console.log(txt);  
-        var newli=document.createElement("li");
-        newli.innerHTML=txt;
-        addcomment.appendChild(newli);
-        }
-    }
-</script>
+    </body> 

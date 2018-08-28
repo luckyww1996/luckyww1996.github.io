@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>伪类和伪元素</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>伪类和伪元素</h1>
+            <h2>NUM1&&伪类和伪元素的区别</h2>
+            <p>css引入伪类和伪元素概念是为了格式化文档树以外的信息,伪类和伪元素是用来修饰不在文档树中的部分</p>
+            <h3>伪类</h3>
+            <p>伪类的语法<span>selector : pseudo-class {property: value}</span></p>
+            <p>CSS伪类用于向某些选择器添加特殊的效果</p>
+            <p>CSS伪类用于当已有元素处于的某个状态时,为其添加对应的样式,这个状态是根据用户行为而动态变化的</p>
+            <p>比如说，当用户悬停在指定的元素时，我们可以通过:hover来描述这个元素的状态。虽然它和普通的css类相似，可以为已有的元素添加样式，但是它只有处于dom树无法描述的状态下才能为元素添加样式，所以将其称为伪类</p>
+            <h3>伪元素</h3>
+            <p>伪元素的语法<span>selector::pseudo-element {property:value;}</span></p>
+            <p>CSS伪元素用于向某些选择器设置特殊效果</p>
+            <p>伪元素用于创建一些不在文档树中的元素，并为其添加样式。</p>
+            <p>CSS2中已存的伪元素仍然可以使用一个冒号:的语法，但是CSS3中新增的伪元素必须使用两个冒号::</p>
+            <p>比如说，我们可以通过:before来在一个元素前增加一些文本，并为这些文本添加样式。虽然用户可以看到这些文本，但是这些文本实际上不在文档树中</p>
+            <h2>NUM2&mdash;&mdash;伪类</h2>
+            <p><img src="images/wei1.jpg" style="width:450px;"/></p>
+            <h3>状态</h3>
+            <p><span>:link</span>选择未访问的链接</p>
+            <p><span>:visited</span>选择已访问的链接</p>
+            <p><span>:hover</span>选择鼠标指针浮动在其上的元素</p>
+            <p><span>:active</span>选择活动的链接</p>
+            <p><span>:focus</span>选择获取焦点的输入字段</p>
+            <h3>结构化</h3>
+            <p><span>:not</span>一个否定伪类，用于匹配不符合参数选择器的元素</p>
+            <p><span>:first-child</span>匹配元素的第一个子元素</p>
+            <p><span>:last-child</span>匹配元素的最后一个子元素</p>
+            <p><span>first-of-type</span>匹配属于元素的首个特定类型的子元素的每个元素</p>
+            <p><span>:last-of-type</span>匹配属于元素的最后一个特定类型的子元素的每个元素</p>
+            <p><span>:nth-child</span>根据元素的位置匹配一个或者多个元素，它接受一个an+b形式的参数</p>
+            <p style="text-indent:4em;">1n+0，或n，匹配每一个子元素</p>
+            <p style="text-indent:4em;">2n+0，或2n，匹配位置为2、4、6、8…的子元素，该表达式与关键字even等价</p>
+            <p style="text-indent:4em;">2n+1匹配位置为1、3、5、7…的子元素、该表达式与关键字odd等价</p>
+            <p style="text-indent:4em;">3n+4匹配位置为4、7、10、13…的子元素</p>
+            <p><span>:nth-last-child</span>:nth-last-child与:nth-child相似，不同之处在于它是从最后一个子元素开始计数的</p>
+            <p><span>:nth-of-type</span>:nth-of-type与nth-child相似，不同之处在于它是只匹配特定类型的元素</p>
+            <p><span>:nth-last-type</span>:nth-last-of-type与nth-of-type相似，不同之处在于它是从最后一个子元素开始计数的</p>
+            <p><span>:only-child</span>当元素是其父元素中唯一一个子元素时，:only-child匹配该元素</p>
+            <p><span>:only-of-type</span>当元素是其父元素中唯一一个特定类型的子元素时，:only-child匹配该元素</p>
+            <p><span>:target</span>当URL带有锚名称，指向文档内某个具体的元素时，:target匹配该元素</p>
+            <p>示例1</p>
+            <p><img src="images/wei3.jpg"/></p>
+            <p>示例2</p>
+            <p><img src="images/wei4.jpg"/></p>
+            <p>示例3</p>
+            <p><img src="images/wei5.jpg"/></p>
+            <p>示例4</p>
+            <p><img src="images/wei6.jpg"/></p>
+            <p>示例5</p>
+            <p><img src="images/wei7.jpg"/></p>
+            <h3>表单相关</h3>
+            <p><span>:checked</span>:checked匹配被选中的input元素，这个input元素包括radio和checkbox</p>
+            <p><span>:default</span>:default匹配默认选中的元素，例如：提交按钮总是表单的默认按钮</p>
+            <p><span>:disabled</span>:disabled匹配禁用的表单元素</p>
+            <p><span>:empty</span>:empty匹配没有子元素的元素。如果元素中含有文本节点、HTML元素或者一个空格，则:empty不能匹配这个元素</p>
+            <p><span>:enabled</span>:enabled匹配没有设置disabled属性的表单元素</p>
+            <p><span>:in-range</span>:in-range匹配在指定区域内元素</p>
+            <p><span>:out-of-range</span>:out-of-range与:in-range相反，它匹配不在指定区域内的元素</p>
+            <p><span>:indeterminate</span>当某组中的单选框或复选框还没有选取状态时，:indeterminate匹配该组中所有的单选框或复选框</p>
+            <p><span>:valid</span>:valid匹配条件验证正确的表单元素</p>
+            <p><span>:invalid</span>:invalid与:valid相反，匹配条件验证错误的表单元素</p>
+            <p><span>:optional</span>:optional匹配是具有optional属性的表单元素。当表单元素没有设置为required时，即为optional属性</p>
+            <p><span>:required</span>:required与:optional相反匹配设置了required属性的表单元素</p>
+            <p><span>:read-only</span>:read-only匹配设置了只读属性的元素，表单元素可以通过设置“readonly”属性来定义元素只读</p>
+            <p><span>:read-write</span>:read-write匹配处于编辑状态的元素。input，textarea和设置了<span>contenteditable</span>的HTML元素获取焦点时即处于编辑状态</p>
+            <p><span style="text-decoration:underline;">:scope</span>:scope匹配处于style作用域下的元素。当style没有设置scope属性时，style内的样式会对整个html起作用</p>
+            <p>示例1</p>
+            <p><img src="images/wei11.jpg"/></p>
+            <p>示例2</p>
+            <p><img src="images/wei12.jpg"/></p>
+            <p>示例3</p>
+            <p><img src="images/wei13.jpg"/></p>
+            <p>示例4</p>
+            <p><img src="images/wei14.jpg"/></p>
+            <p>示例5</p>
+            <p><img src="images/wei15.jpg"/></p>
+            <p>示例6</p>
+            <p><img src="images/wei16.jpg"/></p>
+            <p>示例7</p>
+            <p><img src="images/wei18.jpg"/></p>
+            <p>示例8</p>
+            <p><img src="images/wei19.jpg"/></p>
+            <p>示例9</p>
+            <p><img src="images/wei20.jpg"/></p>
+            <h2>NUM2&mdash;&mdash;伪元素</h2>
+            <p><img src="images/wei2.jpg" style="width:450px;"/></p>
+            <p><span>::before/:before</span>:before在被选元素前插入内容。需要使用content属性来指定要插入的内容。被插入的内容实际上不在文档树中</p>
+            <p><span>::after/:after</span>:after在被元素后插入内容，其用法和特性与:before相似</p>
+            <p><span>::first-letter/:first-letter</span>:first-letter匹配元素中文本的首字母。被修饰的首字母不在文档树中。</p>
+            <p><span>::first-line/:first-line</span>:first-line匹配元素中第一行的文本。这个伪元素只能用在块元素中，不能用在内联元素中</p>
+            <p><span>::selection</span>::selection匹配用户被用户选中或者处于高亮状态的部分。在火狐浏览器使用时需要添加-moz前缀。该伪元素只支持双冒号的形式</p> 
+            <p><span>::placeholder</span>::placeholder匹配占位符的文本，只有元素设置了placeholder属性时，该伪元素才能生效</p>
+            <p style="text-indent:4em;">需要注意的是，除了Firefox是 ::[prefix]placeholder，其他浏览器都是使用 ::[prefix]input-placeholder</p>
+            <p style="text-indent:4em;">在一些浏览器中（IE10和Firefox18及其以下版本）会使用单冒号的形式</p>
+            <p><span style="text-decoration:underline;">::backdrop</span>::backdrop用于改变全屏模式下的背景颜色，全屏模式的默认颜色为黑色。该伪元素只支持双冒号的形式</p>
+            <p>示例1</p>
+            <p><img src="images/wei9.jpg"/></p>
+            <p>示例2</p>
+            <p><img src="images/wei8.jpg"/></p>
+            <p>示例3</p>
+            <p><img src="images/wei10.jpg"/></p>
+        </div>
+    </div>
+</body>
+</html>

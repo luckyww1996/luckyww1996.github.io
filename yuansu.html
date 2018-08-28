@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>元素</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>元素</h1>
+            <h2>NUM1&mdash;&mdash;标准文档流</h2>
+            <h3>标准文档流的微观现象</h3>
+            <p>空白折叠现象</p>
+            <p>高矮不齐，底边对齐</p>
+            <p>自动换行，一行写不满，换行写<span> 注意中文、英文、数字换行的区别 word-wrap属性</span></p>
+            <h2>NUM2&mdash;&mdash;块级元素 行内元素(行内块级元素) 可变元素</h2>
+            <h3>块级元素</h3>
+            <h3>display属性取<span>block table flex grid list-item</span>的元素</h3>
+            <p>霸占一行，不能与其他任何元素并列</p>
+            <p>能接受宽、高</p>
+            <p>如果不设置宽高度，那么宽度将默认变为父亲的“100%”，高度默认为“0”。<span>与标准文档流中，块级元素宽高度的计算有关</span></p>
+            <h3>行内元素</h3>
+            <h3>display属性取<span>inline</span>的元素</h3>
+            <p>与其他行内元素并排</p>
+            <p>不能设置宽、高。默认的宽度，由内容撑宽</p>
+            <p>受父元素的text-align属性和自身vertical-align属性的控制，在水平方向上默认左对齐，垂直方向上默认在行框的baseline基线上显示</p>
+            <h3>行内块级元素</h3>
+            <h3>display属性取<span>inline-block inline-table inline-flex inline-grid</span>的元素</h3>
+            <p>结合了块级元素和行内元素的特征</p>
+            <p>一行可以显示多个</p>
+            <p>可以设置尺寸属性（width、height等）</p>
+            <p>受父元素的text-align属性和自身的vertical-align控制</p>
+            <h3>可变元素</h3>
+            <p>可变元素是基于块级元素与行内元素，随环境而变的。它的基本概念就是需要根据上下文关系确定钙元素是块元素或者行内元素。</p>
+            <p>可变元素还是属于上述两种元素类型，一旦上下文关系确定了它的类别，它就要遵循行内元素或者块级元素的规则</p>
+            <h3>HTML中标签的分类</h3>
+            <p><span>文本级</span>：p、span、a、b、i、u、em</p>
+            <p><span>容器级</span>：div、h系列、li、dt、dd</p>
+            <h3>CSS中标签的分类</h3>
+            <p><span>块级元素</span>（默认）：div、h系列、li、dt、dd、p</p>
+            <p><span>行内元素</span>（默认）：span、a、b、i、u、em</p>
+            <img src="images/yuansu.png" style="width:500px;position:relative;left:50px;"/>
+            <h2>NUM3&mdash;&mdash;块级元素与行内元素的相互转换</h2>
+            <p>块级元素可以设置为行内元素 行内元素可以设置为块级元素</p>
+            <p>一旦，给一个标签设置display: inline;那么，这个标签将立即变为行内元素。此时它和一个span无异</p>
+            <p>此时这个标签不能设置宽度、高度；可以和别人并排了</p>
+            <p>一旦，给一个标签设置display: block;那么，这个标签，变得和一个div无异</p>
+            <p>此时这个标签能够设置宽度、高度；霸占一行了，别人无法和他并排；如果不设置宽度，将撑满父亲</p>
+            <h2>NUM5&mdash;&mdash;CSS元素分类（替换和不可替换元素）</h2>
+            <h3>从元素本身的特点来讲，可以分为替换元素和不可替换元素</h3>
+            <h4>替换元素</h4>
+            <p>替换元素就是根据浏览器的标签和属性，来决定元素具体的展示内容</p> 
+            <p>例如img input textarea select object，这些元素往往没有实际的内容，是一个空元素</p>
+            <h4>不可替换元素</h4>
+            <p>大多数元素是不可替换元素，即其内容直接表现给用户端（例如浏览器）</p>
+            <h2>NUM5&mdash;&mdash;行框</h2>
+            <h3>行框的概念</h3>
+            <p>子元素的虚拟矩形区域，形成的每一行</p>
+            <p>当行内元素或者行内块级元素并排排列的时候，可能它们的高度、字体大小不一样。那么行框就是包裹它们的一个框。</p>
+            <p>行框规定了这些元素排列时候的对齐方式。默认它们的对齐方式是根据baseline基准线对齐</p>
+            <p>在行框中，利用vertical-align来改变它们的对齐方式，常用的值有top、middle、bottom等</p>
+            <h2>NUM6&mdash;&mdash;CSS三种手段，使元素脱离标准文档流</h2>
+            <p>浮动</p>
+            <p>绝对定位</p>
+            <p>固定定位</p>
+        </div>
+    </div>
+</body>

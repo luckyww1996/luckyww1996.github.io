@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>水平居中和垂直居中</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>垂直居中和水平居中</h1>
+            <h2>NUM1&mdash;&mdash;水平居中</h2>
+            <h3>块中文字水平居中</h3>
+            <h4>text-align</h4>
+            <p><span>在块级父容器中让行内元素居中</span>&nbsp;inline/inline-block/inline-table/inline/flex</p>
+            <p>text-align 用于块级元素，作用在使用text-align的块元素中的文字或者图片上，使得文字或者图片在水平方向上居中。即在块级父容器中让行内元素居中，只需使用 text-align: center可以让inline/inline-block/inline-table/inline/flex 等类型的元素实现居中。</p>
+            <p>text-align属性可以继承的。</p>
+            <h3>块元素自身水平居中</h3>
+            <h4>margin:0 auto;</h4>
+            <p><span>宽度确定&&未脱离标准文档流</span>&nbsp;标准文档流||相对定位块元（未脱标）</p>
+            <p>一般情况下，可以设置margin:0 auto;这会使这个块级元素在它的父级元素中居中，左右都会居中，上下不一定居中。只要水平居中的话，就设置margin-left:auto;margin-right:auto;（前提是已经为元素设置了适当的 width 宽度，否则块级元素的宽度会被拉伸为父级容器的宽度。</p>
+            <h4>left:50%; margin-left:负的宽度的一半</h4>
+            <p><span>宽度确定&&脱离标准文档流</span>&nbsp;绝对定位和父元素相对定位||绝对定位</p>
+            <p>left:50%; margin-left:负的宽度的一半进行居中</p>
+            <h4>父float:left;position:relative;left:50%;&&子float:left;position:relative;right:50%;</h4>
+            <p><span>浮动的元素居中</span></p>
+            <p>ps:父元素设置float:left，是为了让父元素的宽度被内容撑开，此处设置display:inline-block，亦可以实现需求。</p>
+            <h4>CSS3的flex实现水平居中方法</h4>
+            <p>display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center; display: -o-box; -o-box-orient: horizontal; -o-box-pack: center; display: -ms-box; -ms-box-orient: horizontal; -ms-box-pack: center; display: box; box-orient: horizontal; box-pack: center;</p>
+            <h4>CSS3的fit-content实现水平居中方法</h4>
+            <p>fit-content”是CSS中给“width”属性新加的一个属性值，配合margin可以让我轻松的实现水平居中的效果</p>
+            <p>width: -moz-fit-content; width:-webkit-fit-content; width: fit-content; margin-left: auto; margin-right: auto;</p>
+            <h4>宽度不确定的块</h4>
+            <h3>多个块级元素</h3>
+            <p>如果要让多个块级元素在同一水平线上居中，那么可以修改它们的 display，display设置为inline或者使用flexbox的显示方式</p>
+            <h2>NUM2&mdash;&mdash;垂直居中</h2>
+            <h3>块元素自身垂直居中</h3>
+            <h4>显示方式设置为表格，使用表格的 vertical-align</h4>
+            <p>父元素设置为display: table，元素设置为display: table-cell;vertical-align: middle;</p>
+            <p>优点：可以动态改变高度，当父元素没有足够空间，不会被截断</p>
+            <p>Internet Explorer(甚至 IE8 beta)中无效</p>
+            <h4>使用绝对定位和transform</h4>
+            <p>父元素设置相对定位，宽，高；子元素设置position: absolute;top: 50%; transform: translate(0, -50%);</p>
+            <h4>绝对定位结合margin: auto</h4>
+            <p>父元素设置相对定位，宽，高；子元素设置绝对定位，bottom为0，top为0，margin-top和margin-bottom为auto</p>
+            <h4>绝对定位，top设置为 50％，margin-top设置为负的content 高度</h4>
+            <p><span>宽度确定</span></p>
+            <p>position:absolute;top:50%;height:高度;margin-top:-高度的一半;</p>
+            <p>content指定overflow:auto，如果 content 太多，会出现滚动条，以免content溢出</p>
+            <p>优点：适用于所有浏览器</p>
+            <p>缺点：没有足够空间时，content 会消失(类似div在body内，当用户缩小浏览器窗口，滚动条不出现的情况)</p>
+            <h4>line-height设置为height的值</h4>
+            <p>将单行文本置中，把 line-height 设置为那个对象的 height 值就可以使文本居中了</p>
+            <p>优点：适用于所有浏览器</p>
+            <p>缺点：只对文本有效(块级元素无效)&nbsp;&nbsp;&nbsp;多行时，断词比较糟糕</p>
+            <h4>line-height和vertical-align对图片进行垂直居中</h4>
+            <p>使用line-height和vertical-align对图片进行垂直居中，vertical-align取值middle</p>
+            <p>ps:注意line-height和vertical-align之间的关系</p>
+            <h4>使用flex布局</h4>
+            <p>文字||块级子元素</p>
+            <p><span>display: flex; align-items: center;</span></p>
+            <p>元素可以通过设置display:flex;将其指定为<span>flex布局</span>的容器，指定好了容器之后再为其添加<span>align-items属性</span>，该属性定义项目在交叉轴上的对齐方式，可能的取值有五个</p>
+            <p>flex-start:：交叉轴的起点对齐</p>
+            <p>flex-end：交叉轴的终点对齐</p>
+            <p>center：交叉轴的中点对齐</p>
+            <p>baseline：项目第一行文字的基线对齐</p>
+            <p>stretch（该值是默认值）：如果项目没有设置高度或者设为了auto，那么将占满整个容器的高度</p>
+            <h4>使用弹性布局</h4>
+            <p>父元素设置宽高， display:flex;flex-direction:column;justify-content:center;</p>
+            <p>这种方式也是首先给父元素设置display:flex，设置好之后改变主轴的方向flex-direction: column，justify-content属性定义了项目在主轴上的对齐方式</p>
+            <p><span>flex-direction属性</span></p>
+            <p>row（该值为默认值）：主轴为水平方向，起点在左端</p>
+            <p>row-reverse：主轴为水平方向，起点在右端</p>
+            <p>row-reverse：主轴为水平方向，起点在右端</p>
+            <p>column-reverse：主轴为垂直方向，起点在下沿</p>
+            <p><span>justify-content属性</span></p>
+            <p>flex-start（该值是默认值）：左对齐</p>
+            <p>flex-end：右对齐</p>
+            <p>center：居中对齐</p>
+            <p>space-between：两端对齐，各个项目之间的间隔均相等</p>
+            <p>space-around：各个项目两侧的间隔相等</p>
+            <h4>使用padding实现子元素的垂直居中</h4>
+            <h4>设置第三方基准</h4>
+        </div>
+    </div>
+</body>
+</html>

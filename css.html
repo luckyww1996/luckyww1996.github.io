@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>选择器 继承性 层叠性 </title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>选择器 继承性 层叠性</h1>
+            <h2>NUM1&mdash;&mdash;选择器</h2>
+            <h3>css基础选择器</h3>
+            <p><span>标签 类 id</span></p>
+            <p>ps:尽可能的用class，除非极特殊的情况可以用id。原因：id是js用的。即js要通过id属性得到标签，所以css层面尽量不用id，否则js别扭。另一层面，会认为一个有id的元素，有动态效果。</p>
+            <p>css高级选择器</p>
+            <p><span>后代选择器</span> 空格就表示后代 .div1 p就是.div1的后代所有的p</p>
+            <p><span>交集选择器</span> 交集选择器没有空格 h3.special必须是h3标签，然后必须是special标签。交集选择器可以连续交，一般以标签名开始</p>
+            <p><span>并集选择器（分组选择器）</span> 逗号分隔</p>
+            <p><span>通配符* </span> *表示所有元素</p>
+            <p><span>儿子选择器</span> &gt; ie7开始兼容</p>
+            <p><span>兄弟选择器</span> + 选择紧接在另一元素后的元素，且二者有相同父元素 ie7开始兼容</p>
+            <p><span>序选择器</span> :first-clid :last-child :nth-child(2n+1) :nth(2n+2) ie8开始兼容</p>
+            <h3>ie6开始兼容的选择器</h3>
+            <p>标签 id class 交集 后代 并集 通配符</p>
+            <h3>IE7开始兼容的选择器</h3>
+            <p>儿子&gt; 兄弟+</p>
+            <h3>IE8开始兼容的选择器</h3>
+            <p>序选择器:first-clid :last-child :nth-child(2n+1) :nth(2n+2)</p>
+            <h2>NUM2&mdash;&mdash;css继承性</h2>
+            <p>color、 text-开头的、line-开头的、font-开头的,这些关于文字样式的，都能够继承； 所有关于盒子的、定位的、布局的属性都不能继承。</p>
+            <h2>NUM3&mdash;&mdash;css层叠性</h2>
+            <p>层叠性：就是css处理冲突的能力。 所有的权重计算，没有任何兼容问题！</p>
+            <p>当选择器，选择上了某个元素的时候，要统计权重<span>（id的数量，类的数量，标签的数量）</span>，以权重大的为准</p>
+            <p>不进位，实际上能进位（奇淫知识点：255个标签，等于1个类名）但是没有实战意义！</p>
+            <p>如果权重一样，那么以后出现的为准</p>
+            <p>如果不能直接选中某个元素，通过继承性影响的话，那么权重是0</p>
+            <p>如果大家都是0，那么有一个就近原则：谁描述的近，听谁的</p>
+            <h4>ps:权重问题总结</h4>
+            <p>1&gt;先看有没有选中，如果选中了，那么以（id数，类数，标签数）来计权重。谁大听谁的。如果都一样，以后写的为准。</p>
+            <p>2&gt;如果没有选中，那么权重是0。如果大家都是0，就近原则。</p>
+            <h2>NUM4&mdash;&mdash;权重问题深入</h2>
+            <p>同一个标签，携带多个类名，有冲突时，与标签中书写类名顺序无关，与css中样式的顺序有关</p>
+            <p>&lt;p class="spec1 spec2"&gt;红色&lt;/p&gt;</p>
+            <p>&lt;p class="spec2 spec1"&gt;红色&lt;/p&gt;</p>
+            <p>.spec2{color:blue;} .spec1{color:red;}</p>
+            <p><span>!important</span></p>
+            <p>可以通过语法 <span>属性:属性值 !important;</span>来给一个属性提高权重。这个属性的权重就是无穷大。</p>
+            <p>!important提升的是一个属性，而不是一个选择器</p>
+            <p>!important无法提升继承的权重，该是0还是0</p>
+            <p>!important不影响就近原则 如果都是继承来的，应该按照“就近原则”，important不影响就近原则。远的，永远是远的。不能给远的写一个important，干掉近的。</p>
+            <h2>NUM5&mdash;&mdash;权重总结</h2>
+            <p>注意!important的性质</p>
+            <img src="images/quanzhong.png" style="width:500px;position:relative;left:50px;"/>
+        </div>
+    </div> 
+</body>

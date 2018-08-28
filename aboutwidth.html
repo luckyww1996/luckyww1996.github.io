@@ -2,74 +2,114 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
-        <title>父元素与子元素间width的关系</title>
+        <meta name="author" content="石婉茹"/>
+        <meta name="keywords" content="关于width"/>
+        <meta name="description" content="luckyww个人网站-分享学习成果"/>
+        <title>关于width</title>
         <link rel="shortcut icon" href="images/favicon.ico"/>
-        <link rel="stylesheet" type="text/css" href="css/global.css"/>
         <link rel="stylesheet" type="text/css" href="css/base.css"/>
-        <style type="text/css">
-             .title{font-size:1.5em;color:rgb(125, 216, 216);}
-             .samlltitle{margin:1.5em 0;color:rgb(95, 94, 92);font-size:1em;}
+        <style> 
+          .addboxstyle{padding:30px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+          .b{color:black;}
         </style>
     </head>
     <body> 
-        <div class="introduce">
-            <div class="header"></div> 
-            <div class="headerword">石婉茹</div>
-            <div class="content">
-                <span>我的名字:石婉茹</span>
-                <span>QQ:2829339528</span>
-                <span>敢问路在何方&&路在脚下</span>
-                <span>95后/在读大三/轻生活/轻梦想</span>
-            </div>
-            <form class="inputbox"> 
-                <input class="left" type="text"/>
-                <input class="right" type="button" value="搜索" onclick="search()"/>
-            </form> 
-        </div>    
-        <div class="box">
-            <div class="contain">
-                <h1 class="title">父元素与子元素间width的关系</h1>
-                <h2 class="samlltitle">第一部分：父元素与子元素都是内联元素</h2>   
-                <p>/*父元素与子元素都是内联元素时*/</p>
-                <p>span{width:100px;}/*失效，因为内联元素不可以直接设置width和height*/</p>
-                <p>a{width:100%;}/*失效，内联元素直接设置100%也是无效的*/</p>
-                <p>此时，审查元素时，span和a的width和height都是auto，即宽度和高度是由内容撑起来的</p>
-
-                <h2 class="samlltitle">第二部分：父元素与子元素都是块级元素</h2>
-                <p>/*父元素与子元素都是块级元素时*/</p>
-                <p>css部分：</p>
-                <p>div.parent{width:100px;}</p>
-                <p>div.son{width:100%;}</p>
-                <p>html部分：</p>
+        <div class="sidebar">
+            <img src="images/logo.jpg"/>
+            <p style="font-size:2em;">石婉茹</p>
+            <p>我的名字：石婉茹</p>
+            <p>QQ:2829339528</p>
+            <p>wechat:ww28052</p>
+            <p>敢问路在何方&&路在脚下</p>
+            <p>95后/本科在读/轻生活/轻梦想</p>
+            <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+        </div> 
+        <div class="contain">
+            <div class="box addboxstyle">
+                <!--标准文档流中，注意margin的折叠问题-->
+                <h1>关于width(content width)</h1>
+                <h2>NUM1&nbsp;width的介绍</h2>
+                <p>width属性是不可被继承的，其默认值为auto</p>
+                <p class="b">行内元素</p>
+                <p>对于文档流的行内元素（img、input除外），设置width属性是没有用的</p>
+                <p class="b">文档流中的块级元素</p>
+                <p>对于处于文档流中的块级元素，根据公式<span>margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right=width of containing block</span>,如果width的值为auto，则先把其他设为auto的值设为0，再计算width的值。</p>
+                <p>即margin，border，padding会影响width。标准文档流中，未设置块级元素的width，则利用上述公式计算&lt;与父元素“保持一致”的理解&gt;。</p>
+                <p class="b">浮动的元素</p>
+                <p>对于浮动的元素，若width为auto，则width会收缩到贴合内容的宽度&lt;浮动的元素未设置宽度，由内容撑高&gt;。</p>
+                <p>ps:float属性值为none的元素，未浮动</p>
+                <p class="b">绝对定位的元素</p>
+                <p>对于绝对定位的元素，公式<span>left+margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right+right=width of containing block</span></p>
+                <p>若width为auto，还要看left与right的值，在此之前还要解析一下static-position，这个位置是指绝对定位的元素在设置绝对定位之前在它包含块中的位置。</p>
+                <p>若width，left，right同时为auto，首先把设置为auto的margin-left、margin-right（如果有）设置为0，然后在一般情况下（direction为ltr），将left值设置为static-position的left值，width的值由shrink-to-fit得出，right值由计算得出。</p>
+                <p>若width为auto，left与right值不全为auto，首先把设置为auto的margin-left、margin-right（如果有）设置为0，width的值由shrink-to-fit得出，另一侧的值由计算得出。</p>
+                <p>若width为auto，left与right值都不为auto，首先把设置为auto的margin-left、margin-right（如果有）设置为0，width则由上面的公式计算得出。</p>
+                <p>ps:绝对定位，设置left与top,left与top是相对于任何最近定位的祖先元素的border内侧，进行计算；若无定位，则相对于页面<span>左上角</span>进行计算,不用考虑body的margin、border</p>       
+                <p class="b">相对定位的元素</p>
+                <p>对于相对定位的块级元素，若width为auto，则width根据公式<span>margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right=width of containing block</span>计算。</p>
+                <p>对于相对定位的行内元素，设置width无效，审查元素，width为auto，即由内容撑高。</p>
+                <p>ps:相对定位的元素能够撑起浮动的父元素的高度，绝对定位、固定定位和浮动的元素不能够撑起来浮动的父元素的高度。</p>
+                <p>ps:元素可以同时设置相对定位与浮动，前者微调元素，后者浮动；同时设置时，width为auto，则元素的内容撑起高度，且无法撑起父元素的高度。</p>
+                <h2>NUM2&nbsp;关于width&mdash;&mdash;width:100%与width:inherit的区别</h2>
+                <p>width取percentage值时，是以包含块的width为基准计算</p>
+                <p>width取inherit值时，等于其父元素的声明值（sepcified value）</p>
+                <p>ps:声明值按照以下的三个原则，进行取值</p>
+                <p>1.如果元素样式表中有定义的属性和属性值（无论是作者、用户，还是浏览器），则其为声明值。</p>
+                <p>2.否则，如果元素不是文档树的根，而其父元素有定义的属性和属性值，且属性可被“继承”（注意width时对继承的理解），则父元素对应属性计算后得到的值（computed value）为其声明值</p>
+                <p>3.否则，声明值取元素对应属性的默认值</p>
+                <p>ps:若父元素和子元素均由内容撑宽，子元素的宽度取percentage时，子元素的内容可能溢出,大于子元素的宽度</p>
+                <h2>NUM3&nbsp;关于width&mdash;&mdash;父元素与子元素间width的关系</h2>
+                <h3>第一部分&mdash;&mdash;父元素与子元素都是行内元素（标准文档流）</h3>
+                <h4>第一种情况&mdash;&mdash;父元素与子元素都是行内元素（input、img除外）</h4>
+                <p>HTML代码：</p>
+                <p>&lt;span&gt;&lt;a&gt;&lt;/a&gt;&lt;/span&gt;</p>
+                <p>CSS代码：</p>
+                <p>span{width:200px;}/*失效，因为行内元素（input、img除外）不能设置width*/</p>
+                <p>a{width:100%;}/*行内元素直接设置100%是无效的*/</p>
+                <p>审查元素时候，行内元素的width和height为auto，即宽度和高度由内容撑起来.</p>
+                <h4>第二种情况&mdash;&mdash;父元素为行内元素（input、img除外），子元素为行内元素（input、img）</h4>
+                <p>HTML代码：</p>
+                <p>&lt;a&gt;&lt;img/&gt;&lt;/a&gt;</p>
+                <p>CSS代码：</p>
+                <p>a{width:300px;}/*失效，因为行内元素（input、img除外）不能设置width*/</p>
+                <p>img{width:100%}/*有效*/</p>
+                <p>img的宽度能够撑起a的宽度，但是a的高度与img的高度不匹配，a标签是内联不可替换元素，img是内联可替换元素，标准对于内联不可替换的元素高度计算便是这样规定的。</p>
+                <p>ps:高度的解决方案，对a标签设置display属性值为block，改变a标签高度计算方式。</p>
+                <p>ps:对input和img的理解，文本，其内不包含其他标签</p>
+                <h3>第二部分&mdash;&mdash;父元素与子元素都是块级元素（标准文档流）</h3>
                 <p>&lt;div class="parent"&gt;</p>
                 <p>&lt;div class="son"&gt;&lt;/div&gt;</p>
                 <p>&lt;/div&gt;</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;此时，子元素不设置margin，border，padding时,子元素的宽度设置为父元素宽度的100%；否则，子元素的宽度为父元素的宽度减去相应的设置。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;如果去掉对子元素宽度的设置，子元素的宽度仍然等于父元素宽度 ，可见，对于块级元素，子元素的宽度默认为父元素宽度的100%。</p>
-
-                <h2 class="samlltitle">第三部分：父元素是块级元素，子元素是内联元素</h2>
-                <p style="color:black;">第一种情况——内联元素是一般的类型（input、img除外）</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;子元素没有办法设置宽度，不存在100%的问题，即内联元素必须依靠内部的内容撑开。</p>
-                <p style="color:black;">第二种情况——内联元素是可以设置宽度和高度的类型（input、img）</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;img和input是内联元素，但是能够设置元素宽度和高度，是因为除了块级元素和内联元素的分类方法外，还有一种替换元素和不可替换元素的分类方法。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black;">可替换元素</span> ——替换元素是浏览器根据其标签的元素与属性来判断显示具体的内容。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;img、input、textarea、select、object 等都是替换元素，这些元素往往都没有实际的内容,例如：<!--替换元素可以增加行框高度，但不增加line-height，内容区高度值 = padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom + height。要想替换元素居中，可以设置line-height = height， vertral-align = middle--></p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="cat.jpg"/&gt;浏览器会根据元素的标签类型和属性来显示这些元素，可替换元素在其显示中也生成了框。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black;">不可替换元素</span>——大多数元素是不可替换元素，即其内容直接呈现给了用户端（如浏览器）。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;当是img这种元素时，无论如何设置父元素的宽高，不去设置img的宽高时，img总是表现为原始的宽高。</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;当是img这种元素时，如果只设置height或者width，那么便等比例显示图片。</p>
-                
-                <h2 class="samlltitle">第四部分：同为块级元素的父元素与脱离文档流的子元素</h2>
-                <p style="color:black;">第一种情况——float:left和float:right</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;如果将子元素设置为float:left或者float:right，使其脱离正常文档流，导致width和height为auto，被内容撑起来。</p>
-                <p style="color:black;">第二种情况——position:absolute和position:fixed</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;这种情况脱离正常文档流，导致width和height为auto，被内容撑起来的。</p>
-                <p style="color:black;">第三种情况——position:relative</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;这种情况下，子元素未脱离标准的文档流，width为父元素的100%，height为auto，被内容撑起来的。</p>
-       
-                <h2 class="samlltitle">第五部分：同为块级的子元素与脱离文档流的父元素</h2>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;父元素设置为float:left或者float:right或者position:absolute或者position:relative或者position:fixed，对于子元素，都没有影响，默认为父元素宽度的100%。</p>
+                <p>css部分：</p>
+                <p>div.parent{width:100px;}</p>
+                <h4>第一种情况&mdash;&mdash;子元素设置width</h4>
+                <p>div.son{width:100%;}</p>
+                <p>块级元素可以设置width，width取percentage值时，是以包含块的width为基准计算</p> 
+                <h4>第二种情况&mdash;&mdash;子元素未设置width</h4>
+                <p>div.son{}</p>
+                <p>块级元素未设置width，默认值为auto，根据公式<span>margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right=width of containing block</span>,计算子元素的width</p> 
+                <h3>第三部分&mdash;&mdash;父元素是块级元素，子元素是行内元素</h3>
+                <h4>第一种情况&mdash;&mdash;行内元素是一般的类型（input、img除外）</h4>
+                <p>子元素没有办法设置宽度，不存在100%的问题，即内联元素必须依靠内部的内容撑开。</p>
+                <h4>第二种情况&mdash;&mdash;行内元素是可以设置宽高的类型（input、img）</h4>
+                <p>img和input是内联元素，但是能够设置元素宽度和高度，是因为除了块级元素和内联元素的分类方法外，还有一种替换元素和不可替换元素的分类方法。</p>
+                <p><span>可替换元素</span> ——替换元素是浏览器根据其标签的元素与属性来判断显示具体的内容。</p>
+                <p>img、input、textarea、select、object 等都是替换元素，这些元素往往都没有实际的内容,例如：</p>
+                <p>&lt;img src="cat.jpg"/&gt;浏览器会根据元素的标签类型和属性来显示这些元素，可替换元素在其显示中也生成了框。</p>
+                <p><span>不可替换元素</span>——大多数元素是不可替换元素，即其内容直接呈现给了用户端（如浏览器）。</p>
+                <p>当是img这种元素时，无论如何设置父元素的宽高，不去设置img的宽高时，img总是表现为原始的宽高。</p>
+                <p>当是img这种元素时，如果只设置height或者width，那么便等比例显示图片。</p>
+                <p>当是img这种元素时，如果同时设置height和width，那么按照设置显示图片。</p>
+                <h3>第四部分&mdash;&mdash;同为块级元素与脱离标准文档流的子元素</h3>
+                <p>子元素脱离标准文档流，设置float:left、float:right、position:absolute、position:fixed任意一个,子元素未设置width，则由内容撑起。</p>
+                <p>ps:子元素设置position:relative,子元素未脱标，若子元素未设置宽度，根据公式<span>margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right=width of containing block</span>计算。</p>
+                <h3>第五部分&mdash;&mdash;同为块级元素与脱离标准文档流的父元素</h3>
+                <p>子元素处于标准文档流，若子元素未设置width，根据公式<span>margin-left+border-left-width+padding-left+width+padding-right+border-right-width+margin-right=width of containing block</span>计算。</p>
+                <h3>第六部分&mdash;&mdash;同为块级元素且父元素与子元素均脱离标准文档流</h3>
+                <p>子元素未设置width，则由内容撑高，且脱标的子元素撑不起父元素的高度。</p>
+                <p><span>ps:上文中出现的设置width，默认不设置为auto；NUM3基于NUM1;NUM1中应注意元素是否能够设置width</span></p>
             </div>
         </div>
-    </body>
+    </body>      
 </html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>浏览器兼容问题</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>浏览器兼容问题</h1>
+            <h2>NUM1&mdash;&mdash;ie6不支持小于12px的盒子</h2>
+            <h3>ie6兼容问题</h3>
+            <p>IE6，不支持小于12px的盒子，任何小于12px的盒子，在IE6中看都大</p>
+            <h3>解决方案</h3>
+            <p>将盒子的字号，设置小（小于盒子的高）</p>
+            <p>例如：height:4px;_font-size:0px;</p>
+            <p><span>只要给css属性之前，加上下划线，这个属性就是IE6认识的专有属性</span></p>
+            <h3>浏览器<span>hack</span></h3>
+            <p>浏览器hack。hack就是“黑客”，就是使用浏览器提供的后门，针对某一种浏览器做兼容。</p>
+            <p>css属性之前，加上下划线&mdash;&mdash;IE6专有属性</p>
+            <p>css属性之前，加上-webkit-&mdash;&mdash;Chrome和Safari的专有属性</p>
+            <p>css属性之前，加上-moz-&mdash;&mdash;Firefox的专有属性</p>
+            <p>css属性之前，加上-ms-&mdash;&mdash;IE的专有属性</p>
+            <p>css属性之前，加上-o-&mdash;&mdash;Opera的专有属性</p>
+            <h2>NUM2&mdash;&mdash;ie6不支持用overflow:hidden;来清除浮动</h2>
+            <h3>解决方案</h3>
+            <p>以毒攻毒，追加一条_zoom:1;</p>
+            <p>完整写法1overflow: hidden;_zoom:1;</p>
+            <p>实际上，_zoom:1;能够触发浏览器hasLayout机制</p>
+            <h3>haslayout</h3>
+            <p>hasLayout属性是微软特有的过时属性，在IE8、IE9中，hasLayout属性已经被废弃。</p>
+            <p>haslayout 是Windows Internet Explorer渲染引擎的一个内部组成部分。在InternetExplorer中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了 hasLayout 的属性，属性值可以为true或false。当一个元素的 hasLayout属性值为true时，我们说这个元素有一个布局(layout)</p>
+            <p>如果它设置成了true，它就不得不去渲染它自己，因此元素不得不扩展去包含它的流出的内容。例如浮动或者很长很长的没有截断的单词，如果haslayout被设置成非true，那么元素得依靠某个祖先元素来渲染它。这就是很多的ie bugs诞生的地方。</p>
+            <p>这两个IE6的兼容问题，都是通过多写一条hack来解决的，称为伴生属性。</p>
+            <p>如，height:6px;_font-size:0;</p>
+            <p>如，overflow:hidden;_zoom:1;</p>
+            <h2>NUM3&mdash;&mdash;关于margin的IE6兼容问题</h2>
+            <h3>IE6双倍margin bug</h3>
+            <h4>bug:</h4>
+            <p>当出现连续浮动的元素，携带和浮动方向相同的margin时，队首的元素，会双倍marign。</p>
+            <h4>解决方案:</h4>
+            <p>&lt;1&gt;使浮动的方向和margin的方向，相反</p>
+            <p>&lt;2&gt;使用hack,单独给队首的元素，写一个一半的margin</p>
+            <h3>IE6的3px bug</h3>
+            <h4>bug:</h4>
+            <p><img src="images/margin.png" style="width:500px;"/></p>
+            <h4>解决方案:</h4>
+            <p>不用管，因为根本就不允许用儿子踹父亲。所以，如果你出现了3px bug，说明你的代码不标准</p>
+        </div>
+    </div>
+</body>
+</html>

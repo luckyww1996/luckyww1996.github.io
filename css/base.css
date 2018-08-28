@@ -1,8 +1,26 @@
 @charset "utf-8";
- /*右侧大盒子*/
- .box{position:relative;left:30%;top:0;width:70%;}
- /*右侧的内容样式*/
- .contain{position:absolute; margin:2em 10% 0 10%;padding:4em;width:70%;
-          line-height:2em;
-          background-color:#fafafa; 
-          box-shadow:0 0 2px rgba(0,0,0, 0.5);}
+
+/*清除样式*/
+*{margin:0px;padding:0px;}
+html{height:100%;}
+body{font-size:14px;height:100%;color:#858585;}
+img,input,button{border:none;outline-style:none;}/*去掉边框的样式，外边框样式*/
+textarea{resize:none;}/*防止拖动,拖动后会影响布局*/
+img{border:0px;vertical-align:middle;}/*去掉图片底侧默认的3px空白，display:block也可以去掉*/
+a{text-decoration:none;color:black;}
+li{list-style:none;}
+/*公共样式*/
+/*左*/
+.sidebar{width:30%;height:100%;position:fixed;top:0px;left:0px;padding-top:75px;background-image:url("../images/back.jpg");text-align:center;}/*左侧栏*/
+.sidebar img{width:100px;border:1px solid rgb(112,190,145);border-radius:50%;}/*左侧栏头像logo*/
+.sidebar p{color:rgb(112,190,145);margin:10px;}/*logo头像的下方文字*/
+.sidebar input{height:28px;border:1px solid rgb(112,190,145);color:rgb(112,190,145);background-color:transparent;}/*搜索框*/
+/*右*/
+.contain{width:70%;position:relative;top:0px;left:30%;padding-top:10px;}/*右侧大容器，微调，padding-top填充*/
+.box{width:700px;margin:0 auto;margin-bottom:30px;}/*右侧实际内容宽度，居中*/
+.box h1{font-size:1.5em;color:rgb(125, 187, 187);text-align:center;}
+.box h2{font-size:1.3em;color:rgb(125, 216, 216);margin:20px 0px;}
+.box h3{font-size:1.1em;color:rgb(95,94,92);margin:20px 0px;}
+.box h4{color:rgba(0, 0, 0,0.5);text-indent:1em;margin:10px 0px;}
+.box p{text-indent:2em;padding:0 2em;word-wrap:break-word;line-height:2em;}
+.box span{color:red;}

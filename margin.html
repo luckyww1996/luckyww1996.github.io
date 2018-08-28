@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>关于margin</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>关于margin</h1>
+            <h2>NUM1&mdash;&mdash;margin的坍塌现象</h2>
+            <p>标准文档流中，<span>竖直方向</span>的margin不叠加，以较大的为准。</p>
+            <p>如果不在标准流，比如盒子都浮动了，那么两个盒子之间是没有塌陷现象的</p>
+            <h2>NUM2&mdash;&mdash;盒子居中margin:0 auto;</h2>
+            <p><span>注意ps:</span></p>
+            <p>使用margin:0 auto; 的盒子，必须有width，有<span>明确的width</span></p>
+            <p>只有<span>标准流</span>的盒子，才能使用margin:0 auto; 居中</p>
+            <p>margin:0 auto;是在<span>居中盒子</span> ，不是居中文本。文本的居中，要使用text-align:center;</p>
+            <p>margin:0 auto;   → 让这个div自己在大容器中居中。text-align: center;  → 让这个div内部的文本居中。</p>
+            <h2>NUM3&mdash;&mdash;善于使用父亲的padding，而不是儿子的margin</h2>
+            <p>如果父亲没有border，那么儿子的margin实际上踹的是“流”，踹的是这“行”。所以，父亲整体也掉下来了</p>
+            <p><img src="images/margin.jpg" style="width:500px;"/></p>
+            <p>margin这个属性，本质上描述的是兄弟和兄弟之间的距离； 最好不要用这个marign表达父子之间的距离。所以，我们一定要善于使用父亲的padding，而不是儿子的margin。</p>
+            <h2>NUM4&mdash;&mdash;关于margin的IE6兼容问题</h2>
+            <h3>IE6双倍margin bug</h3>
+            <h4>bug:</h4>
+            <p>当出现连续浮动的元素，携带和浮动方向相同的margin时，队首的元素，会双倍marign。</p>
+            <h4>解决方案:</h4>
+            <p>&lt;1&gt;使浮动的方向和margin的方向，相反</p>
+            <p>&lt;2&gt;使用hack,单独给队首的元素，写一个一半的margin</p>
+            <h3>IE6的3px bug</h3>
+            <h4>bug:</h4>
+            <p><img src="images/margin.png" style="width:500px;"/></p>
+            <h4>解决方案:</h4>
+            <p>不用管，因为根本就不允许用儿子踹父亲。所以，如果你出现了3px bug，说明你的代码不标准</p>
+        </div>
+    </div>
+</body>

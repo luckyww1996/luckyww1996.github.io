@@ -2,85 +2,141 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+        <meta name="author" content="石婉茹"/>
+        <meta name="keywords" content="学习总结"/>
+        <meta name="description" content="luckyww个人网站-分享学习成果"/>
         <title>luckyww个人网站-分享学习成果</title>
         <link rel="shortcut icon" href="images/favicon.ico"/>
-        <link rel="stylesheet" type="text/css" href="css/global.css"/>
-        <style type="text/css">
-           .box{position:relative;left:30%;top:0;width:70%;}
-           .contain{float:left; 
-                    box-shadow:0 0 2px rgba(0,0,0,0.1);
-                    margin:2em 0 0 10%;padding:1em;
-                    background-color:#fafafa;
-                    width:32%;}
-            .contain div{width:100%;text-align:left;margin:1em 5% 5% 0;}
-            a{color:aqua;font-size:1.5em;text-decoration:none;}
-            img{width:100%;}
-    </style>
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+        <style> 
+          .box .content{float:left;width:300px;margin-bottom:45px;box-shadow:0 0 2px rgba(0,0,0,0.1);text-align:center;}
+          .box .content:nth-child(2n+1){margin-right:100px;}
+          .content a{color:aqua;font-size:1.5em;line-height:2em;}
+          .content img{width:260px;}
+          .content p{width:100%;line-height:3em;text-indent:0;padding:0;}
+        </style>
     </head>
     <body> 
-        <div class="introduce">
-            <div class="header"></div>
-            <div class="headerword">石婉茹</div>
+        <div class="sidebar">
+            <img src="images/logo.jpg"/>
+            <!--标准文档流中，margin的折叠，下面的margin均为10px（设置的margin）-->
+            <p style="font-size:2em;">石婉茹</p>
+            <p>我的名字：石婉茹</p>
+            <p>QQ:2829339528</p>
+            <p>wechat:ww28052</p>
+            <p>敢问路在何方&&路在脚下</p>
+            <p>95后/本科在读/轻生活/轻梦想</p>
+            <!--input为内联元素，此时若分行写，会空白折叠，显示一个空格
+            类型为text，button，设置相同的高度，存在padding，border时候，text的盒子相对大
+            button类型采用Quirks模式
+            margin不计入盒子的真实占有宽度
+            -->
+            <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px;"/>
+        
+        </div> 
+        <div class="contain">
+        <!--为父元素div清除浮动，使得浮动的子元素撑起父元素的高度
+            此时，如果设置父元素的overflow:hidden清除浮动，则会影响box-shadow样式
+            故采用在父元素的最后，内墙法来清除浮动
+        --> 
+            <div class="box">
+                <!--
+                右侧小盒子的第二种实现方法
+                .box ul li{float:left;width:300px;}
+                .box ul li:nth-child(2n+1){margin-right:100px;}
+                为父元素ul清除浮动，使得浮动的子元素撑起父元素的高度
+                <ul style="overflow:hidden;">
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+            -->
+            
             <div class="content">
-                <span>我的名字:石婉茹</span>
-                <span>QQ:2829339528</span>
-                <span>敢问路在何方&&路在脚下</span>
-                <span>95后/在读大三/轻生活/轻梦想</span>
+                    <a href="aboutme.html" target="_blank">关于我【石婉茹】</a>
+                    <!--父元素的width无法并排放下行内元素a与img，故img另起一行排列-->
+                    <a href="aboutme.html" target="_blank"><img src="images/aboutme.jpg" alt="关于我"/></a>
+                    <p>石婉茹,在读大三，热爱编程，喜欢看书</p>
+                    <!--一些问题：局限性   
+                    此处未给a和p设置高度，高度均为适应
+                    通过line-height来调整文字的垂直位置（文字与图片），应注意到给内联元素与块级元素设置line-height的区别
+                    文字继承父元素，居中显示，当a与p文字文字过多，换行后居中与行高带来的展示问题
+                    a与img为内联元素，此处换行的原因如上，受到父元素的宽度限制
+                    -->
             </div>
-            <form class="inputbox"> 
-                <!--添加a标签，并为其设置类right，设置input的style属性，清除了类right-->
-                <input class="left" type="text"/>
-                <a class="right">
-                <input type="button" value="搜索" style="width:100%;height:100%;" onclick="search()"/>
-                </a>
-            </form> 
-        </div>
-        <div class="box">
-            <div class="contain" id="aboutme"> 
-                 <div><a href="aboutme.html" target="_blank">关于我【石婉茹】</a></div>
-                 <div><a href="aboutme.html" target="_blank"><img src="images/image1.jpg" href=""/></a></div>
-                 <div>石婉茹,在读大三，热爱编程，喜欢看书</div>
+            <div class="content">
+                <a href="problem.html" target="_blank">关于problem</a>
+                <a href="problem.html" target="_blank"><img src="images/aboutproblem.jpg" alt="关于quirks"/></a>
+                <p>项目中遇到的问题</p>
             </div>
-            <div class="contain" id="aboutwidth">
-                 <div><a href="aboutwidth.html" target="_blank">父元素与子元素的width</a></div>
-                 <div><a href="aboutwidth.html" target="_blank"><img src="images/image2.jpg"/></a></div>
-                 <div>width</div>
+            <div class="content">
+                <a href="llqjianrong.html" target="_blank">浏览器兼容性</a>
+                <a href="llqjianrong.html" target="_blank"><img src="images/aboutl.jpg" alt="关于float"/></a>
+                <p>浏览器兼容性</p>
             </div>
-            <div class="contain" id="aboutregex">
-                    <div><a href="" target="_blank">正则表达式</a></div>
-                    <div><a href="" target="_blank"><img src="images/image3.jpg"/></a></div>
-                    <div>js中RegExp</div>
+            <div class="content">
+                <a href="haslayout.html" target="_blank">haslayout机制</a>
+                <a href="haslayout.html" target="_blank"><img src="images/abouth.jpg" alt="关于float"/></a>
+                <p>haslayout机制</p>
             </div>
-            <div class="contain" id="abouteval">
-                    <div><a href="" target="_blank">eval()函数</a></div>
-                    <div><a href="" target="_blank"><img src="images/image4.jpg"/></a></div>
-                    <div>js中的eval()</div>
+            <div class="content">
+                <a href="css.html" target="_blank">选择器 继承性 层叠性</a>
+                <a href="css.html" target="_blank"><img src="images/aboutcss.jpg" alt="关于margin"/></a>
+                <p>css选择器，css的继承性与层叠性</p>
             </div>
-            <div class="contain">
-                <div><a href="" target="_blank">IE6部分兼容问题</a></div>
-                <div><a href="" target="_blank"><img src="images/image5.jpg"/></a></div>
-                <div>ie6部分兼容问题</div>
+            <div class="content">
+                <a href="box.html" target="_blank">盒模型</a>
+                <a href="box.html" target="_blank"><img src="images/aboubox.png" alt="关于float"/></a>
+                <p>盒模型相关问题</p>
             </div>
-            <div class="contain" id="domain">
-                <div><a href="" target="_blank">js没有块级作用域</a></div>
-                <div><a href="" target="_blank"><img src="images/image6.png"/></a></div>
-                <div>js没有块级作用域</div>
+            <div class="content">
+                <a href="quirks.html" target="_blank">关于Quirks模式</a>
+                <a href="quirks.html" target="_blank"><img src="images/aboutquirks.jpg" alt="关于quirks"/></a>
+                <p>Quirks模式相关问题</p>
+            </div>
+            <div class="content">
+                    <a href="aboutwidth.html" target="_blank">关于width</a>
+                    <a href="aboutwidth.html" target="_blank"><img src="images/aboutwidth.jpg" alt="关于width"/></a>
+                    <p>关于父元素与子元素的width，width的设置</p>
+            </div>
+            <div class="content">
+                <a href="margin.html" target="_blank">关于margin</a>
+                <a href="margin.html" target="_blank"><img src="images/aboutmargin.jpg" alt="关于margin"/></a>
+                <p>margin相关问题</p>
+            </div>
+            <div class="content">
+                    <a href="float.html" target="_blank">关于浮动</a>
+                    <a href="float.html" target="_blank"><img src="images/aboutfloat.jpg" alt="关于float"/></a>
+                    <p>浮动相关问题</p>
+            </div>
+            <div class="content">
+                <a href="position.html" target="_blank">关于定位</a>
+                <a href="position.html" target="_blank"><img src="images/aboutp.jpg" alt="关于float"/></a>
+                <p>相对定位 固定定位 绝对定位</p>
+            </div>
+            <div class="content">
+                    <a href="center.html" target="_blank">关于居中</a>
+                    <a href="center.html" target="_blank"><img src="images/aboutcenter.jpg" alt="关于float"/></a>
+                    <p>水平居中 垂直居中</p>
+            </div>
+            <div class="content">
+                <a href="textva.html" target="_blank">vertical-align和text-align</a>
+                <a href="textva.html" target="_blank"><img src="images/aboutt.jpg" alt="关于float"/></a>
+                <p>vertical-align text-align</p>
+            </div>
+            <div class="content">
+                    <a href="yuansu.html" target="_blank">关于元素</a>
+                    <a href="yuansu.html" target="_blank"><img src="images/abouty.jpg" alt="关于float"/></a>
+                    <p>块级元素 内联元素 可变元素</p>
+            </div>
+            <div class="content">
+                <a href="weileiweiyuansu.html" target="_blank">伪类和伪元素</a>
+                <a href="weileiweiyuansu.html" target="_blank"><img src="images/aboutw.jpg" alt="关于float"/></a>
+                <p>伪类 伪元素</p>
+            </div>
+            <!--如前所述，清除浮动-->
+            <div style="clear:both"></div>
             </div>
         </div>
     </body>      
 </html>
-<srcipt type="text/javascript" src="js/animate.js"></srcipt>
-<script>
-    function search(){
-        var val=document.getElementsByClassName("left")[0];
-        var alink=document.getElementsByClassName("right")[0];
-        switch(val.value){
-            case "关于我": alink.href="#aboutme";break;
-            case "父元素与子元素的width": alink.href="#aboutwidth";break;
-            case "js没有块级作用域": alink.href="#domain";break;
-            case "正则表达式":alinl.href="#aboutregex";break;
-            case "js中的eval()函数":alink.href="#abouteval";break;
-            default: alink.href="javascript:alert('没有找到匹配项')";
-        }
-    }
-</script>
+

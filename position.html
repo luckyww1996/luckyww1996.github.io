@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>关于定位</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>关于定位</h1>
+            <h2>NUM1&mdsh;&mdash;相对定位</h2>
+            <h3>相对定位</h3>
+            <p>相对定位，就是<span>微调元素位置</span>的。让元素相对自己原来的位置，进行位置调整。</p>
+            <p><img src="images/position.jpg" style="width:300px;"/></p>
+            <p>如果一个盒子想进行位置调整，那么就要使用相对定位</p>
+            <h3>不脱标，老家留坑，形影分离</h3>
+            <p>相对定位不脱标，真实位置是在老家，只不过影子出去了，可以到处飘。</p>
+            <p><img src="images/position2.jpg" style="width:500px;"/></p>
+            <h3>相对定位的用途</h3>
+            <p>相对定位有坑，所以一般不用于做“压盖”效果。页面中，效果极小。就两个作用：</p>
+            <p>&lt;1&gt;微调元素</p>
+            <p>&lt;1&gt;做绝对定位的参考，子绝父相</p>
+            <h3>相对定位的定位值</h3>
+            <p>用left、right来描述盒子右、左的移动</p>
+            <p>用top、bottom来描述盒子的下、上的移动</p>
+            <p>负数就是相反的方向</p>
+            <h2>NUM2&mdsh;&mdash;绝对定位</h2>
+            <h3>绝对定位</h3>
+            <p>绝对定位比相对定位更灵活</p>
+            <h3>绝对定位脱标</h3>
+            <p>绝对定位的盒子，是脱离标准文档流的。所以，所有的标准文档流的性质，绝对定位之后都不遵守了。</p>
+            <p>绝对定位之后，标签就不区分所谓的行内元素、块级元素了，不需要display:block;就可以设置宽、高了</p>
+            <h3>参考点</h3>
+            <h4>top</h4>
+            <p>绝对定位的参考点，如果用top描述，那么定位参考点就是页面的左上角，而不是浏览器的左上角：</p>
+            <p><img src="images/top.png" style="width:300px;"/></p>
+            <h4>bottom</h4>
+            <p>如果用bottom描述，那么就是浏览器首屏窗口尺寸，对应的页面的左下角</p>
+            <p><img src="images/bottom.png" style="width:300px;"/></p>
+            <h3>以盒子为参考点</h3>
+            <p>一个绝对定位的元素，如果父辈元素中出现了也定位了的元素，那么将以父辈这个元素，为参考点。</p>
+            <p>要听最近的已经定位的祖先元素的，不一定是父亲，可能是爷爷</p>
+            <p>不一定是相对定位，任何定位，都可以作为参考点</p>
+            <p>子绝父绝、子绝父相、子绝父固，都是可以给儿子定位的。但是，工程上子绝、父绝，没有一个盒子在标准流里面了，所以页面就不稳固，没有任何实战用途。工程上，“子绝父相”有意义，父亲没有脱标，儿子脱标在父亲的范围里面移动。</p>
+            <p>绝对定位的儿子，无视参考的那个盒子的padding。</p>
+            <p>绿色部分是div的padding，蓝色部分是div的内容区域。那么此时，div相对定位，p绝对定位。p将无视父亲的padding，在border内侧为参考点，进行定位：</p>
+            <p><img src="images/position3.png" style="width:300px;"/></p>
+            <h4>绝对定位的盒子居中</h4>
+            <p>绝对定位之后，所有标准流的规则，都不适用了。所以<span>margin:0 auto;</span>失效。</p>
+            <p><span>left:50%; margin-left:负的宽度的一半</span>进行居中</p>
+            <h2>NUM3&mdsh;&mdash;固定定位</h2>
+            <p>固定定位，就是相对浏览器窗口定位。页面如何滚动，这个盒子显示的位置不变。<span>固定定位脱标！</span></p>
+            <p>IE6不兼容。</p>
+            <h2>NUM3&mdsh;&mdash;z-index属性</h2>
+            <p> z-index值表示谁压着谁。数值<span>大</span>的压盖住数值小的。</p>
+            <p>只有<span>定位</span>了的元素，才能有z-index值。也就是说，不管相对定位、绝对定位、固定定位，都可以使用z-index值。而浮动的东西不能用。</p>
+            <p>z-index值没有单位，就是一个<span>正整数</span>。默认的z-index值是0。</p>
+            <p>如果大家都没有z-index值，或者z-index值一样，那么谁写在<span>HTML</span>后面，谁在上面能压住别人。定位了的元素，永远能够压住没有定位的元素。</p>
+            <p><span>从父</span>现象：父亲怂了，儿子再牛逼也没用。</p>
+        </div>
+    </div>
+</body>
+</html>

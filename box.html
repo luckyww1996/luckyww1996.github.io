@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/> 
+    <meta name="author" content="石婉茹"/>
+    <meta name="keywords" content="关于width"/>
+    <meta name="description" content="luckyww个人网站-分享学习成果"/>
+    <title>盒模型</title>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <style> 
+      .addboxstyle{padding:30px 60px 30px 60px;box-shadow:0 0 4px rgba(0,0,0,0.1);text-align:left;}
+      .b{color:black;}
+    </style>
+</head>
+<body> 
+    <div class="sidebar">
+        <img src="images/logo.jpg"/>
+        <p style="font-size:2em;">石婉茹</p>
+        <p>我的名字：石婉茹</p>
+        <p>QQ:2829339528</p>
+        <p>wechat:ww28052</p>
+        <p>敢问路在何方&&路在脚下</p>
+        <p>95后/本科在读/轻生活/轻梦想</p>
+        <input class="s" type="text" style="width:50%;"/><input class="s" type="button" value="搜索" style="width:10%;height:30px"/>
+    </div> 
+    <div class="contain">
+        <div class="box addboxstyle">
+            <h1>盒模型</h1>
+            <h2>NUM1&mdash;&mdash;盒子中的区域</h2>
+            <p>一个盒子中主要的属性就5个：width内容的宽度、height内容的高度、padding内边距、border边框、margin外边距。</p>
+            <h3>padding</h3>
+            <p>padding就是内边距。padding的区域有背景颜色，css2.1前提下，并且背景颜色一定和内容区域的相同。即background-color将填充所有boder以内的区域。<span>ps:背景的填充与background-clip与background-origin有关</span></p>
+            <p>padding综合属性 按方向拆分padding-top padding-right padding-bottom padding-left</p>
+            <p>4个值（上右下左） 3个值（上 右 下 左和右相同） 2个值（上 右 下同上 左同右） 1个值（上右下左相同）</p>
+            <h3>border</h3>
+            <p>边框有三个要素：粗细、线型、颜色。颜色如果不写，默认是黑色。另外两个属性不写,显示不出来边框。</p>
+            <img src="images/borderline.png" style="position:relative;left:50px;"/>
+            <p>border:10px ridge red;  在chrome和firefox、IE中有细微差别，如果追求极大的还原度，则利用图片。solid dotted dashed则比较稳定。</p> 
+            <p>border综合属性 按方向拆分border-top border-right border-bottom border-left 按三要素拆分border-width边框宽度 border-style边框线形 border-color边框颜色 </p>
+            <p>按方向、按要素拆分，12条语句</p>
+            <h2>NUM2&mdash;&mdash;IE盒模型</h2>
+            <h3>IE盒模型（怪异盒模型）</h3>
+            <p>规定元素的width和height属性是包含元素的border+padding+content</p>
+            <p>IE6以后支持W3C标准盒模型，现在的主流浏览器里面都默认使用W3C标准盒模型</p>
+            <h2>NUM3&mdash;&mdash;W3C盒模型</h2>
+            <p>规定元素的width和height属性只包含content</p>
+            <p>真实占有宽度=  左border  +  左padding  +  width  +  右padding  +  右border</p>
+            <h2>NUM4&mdash;&mdash;box-sizing属性</h2>
+            <p>box-sizing属性是CSS3中新出的属性，用来选择盒模型标准，默认值为content-box（W3C），另一个值为border-box（IE）</p>
+        </div>
+    </div>
+</body>   
